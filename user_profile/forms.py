@@ -23,8 +23,9 @@ def save(self, commit=True):
 
 
 def check_password(self, commit=True):
-    password= self.cleaned_data['password']
-    if (len(password) != 0) & (password.isdigit() == False) & (password.isalpha() == False) & (password.islower() == False) & (
+    password = self.cleaned_data['password']
+    if (len(password) != 0) & (password.isdigit() == False) & (password.isalpha() == False) & (
+            password.islower() == False) & (
             password.isupper() == False):
         return True
     else:

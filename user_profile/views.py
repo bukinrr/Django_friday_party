@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserForm
+from .forms import UserForm, check_password
 from .serializres import UserSerializer, UserDetailSerializer
 from rest_framework import generics
 
@@ -46,7 +46,7 @@ def user_logout(request):
 def user_registration(request):
     if request.method == "POST":
         form = UserForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() & check_password(form):
             user = form.save()
             user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
             login(request, user)
