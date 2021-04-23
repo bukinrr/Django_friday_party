@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from rest_framework.renderers import JSONRenderer
 
 
 class UserForm(forms.ModelForm):
@@ -8,6 +9,7 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+        json =JSONRenderer().render(fields)
 
     def save(self, commit=True):
         username = self.cleaned_data['username']
