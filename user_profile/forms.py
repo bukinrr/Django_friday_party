@@ -12,6 +12,7 @@ class UserForm(forms.ModelForm):
         fields = ['username', 'password']
         json = JSONRenderer().render(fields)
 
+
 def save(self, commit=True):
     username = self.cleaned_data['username']
     password = self.cleaned_data['password']
@@ -19,3 +20,12 @@ def save(self, commit=True):
     if commit:
         user.save()
     return user
+
+
+def check_password(self, commit=True):
+    password= self.cleaned_data['password']
+    if (len(password) != 0) & (password.isdigit() == False) & (password.isalpha() == False) & (password.islower() == False) & (
+            password.isupper() == False):
+        return True
+    else:
+        return False
