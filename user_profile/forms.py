@@ -12,10 +12,10 @@ class UserForm(forms.ModelForm):
         fields = ['username', 'password']
         json = JSONRenderer().render(fields)
 
-    def save(self, commit=True):
-        username = self.cleaned_data['username']
-        password = self.cleaned_data['password']
-        user = User.objects.create_user(username, '', password)
-        if commit:
-            user.save()
-        return user
+def save(self, commit=True):
+    username = self.cleaned_data['username']
+    password = self.cleaned_data['password']
+    user = User.objects.create_user(username, '', password)
+    if commit:
+        user.save()
+    return user
