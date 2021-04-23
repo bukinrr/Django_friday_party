@@ -6,10 +6,11 @@ from rest_framework.renderers import JSONRenderer
 class UserForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+
     class Meta:
         model = User
         fields = ['username', 'password']
-        json =JSONRenderer().render(fields)
+        json = JSONRenderer().render(fields)
 
     def save(self, commit=True):
         username = self.cleaned_data['username']

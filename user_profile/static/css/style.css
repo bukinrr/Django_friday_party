@@ -1,23 +1,23 @@
-header{
+header {
     background-color: darkcyan;
     color: white;
     height: 100px;
 }
 
-h3{
+h3 {
     text-align: center;
     vertical-align: middle;
     padding-top: 20px;
 }
 
-main{
+main {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.logout{
+.logout {
     position: relative;
-    text-align:center;
+    text-align: center;
     color: white;
 }
 
@@ -26,7 +26,7 @@ main{
     font-size: larger;
 }
 
-.logout a:hover{
+.logout a:hover {
     color: white;
     text-decoration: none;
 }
